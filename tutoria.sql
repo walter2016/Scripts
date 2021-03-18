@@ -1,0 +1,18 @@
+SELECT HIRE_DATE, EXTRACT(Year from sysdate) - EXTRACT(Year from HIRE_DATE) year  FROM EMPLOYEES
+
+
+SELECT distinct
+       TABLE_NAME tabla,
+        LISTAGG(COLUMN_NAME, ', ')
+        within group ( order by COLUMN_ID) over ( partition by TABLE_NAME) columnas
+FROM ALL_TAB_COLUMNS  where OWNER='HR';
+
+
+
+SELECT STREET_ADDRESS FROM LOCATIONS WHERE STREET_ADDRESS LIKE '%@_%' escape '@';
+
+
+
+SELECT TABLE_NAME, COUNT(*) NO_COLUMNAS  FROM ALL_TAB_COLUMNS  where OWNER='HR'
+GROUP BY TABLE_NAME;
+
