@@ -11,7 +11,7 @@ BEGIN
 	inner join stores s 
 		on o.store_id = s.store_id
 	where extract(year from o.order_datetime)=n_year
-	and s.tore_name=v_store_name
+	and s.store_name=v_store_name
 	group by s.store_name, extract(year from o.order_datetime);
 	dbms_output.put_line('Total de ordenes para '|| v_store_name||' en' ||n_year||':'||n_order_count);
 	
